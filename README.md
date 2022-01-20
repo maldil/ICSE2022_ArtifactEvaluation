@@ -1,12 +1,14 @@
 # Discovering Repetitive Code Changes in Python ML Systems
+We made all the tools and data used in the research publicly available in order to claim "Available" and "Functional" batches.
 
 ## About the artifact
+
 We release two tools
 * [Py-RefactoringMiner](https://github.com/maldil/RefactoringMiner) - a tool that mines Python refactoring in git commits of Python systems
 * [R-CPATMiner](https://github.com/maldil/R-CPATMiner) - a tool that mines fine-grained code change patterns in Python systems
 This artifact consists of the open source versions of the tools ([Py-RefactoringMiner](https://github.com/maldil/RefactoringMiner), [R-CPATMiner](https://github.com/maldil/R-CPATMiner)) and a subset of the small sized open-source projects used in the research. We have readily installed two tools on a [Docker container](https://docker-curriculum.com/#what-is-docker-) and included the evaluation subjects for the reviewer’s convenience. The tools' git repositories provide detailed instructions on building and using the tools.
 
-We made two types of large datasets publicly available. These datasets were extracted using the above tools.
+We made two types of large datasets publicly available in https://mlcodepatterns.github.io. These datasets were extracted using the above tools.
 * 2,062 instances of validated Python refactoring instances
 * 28K fine grained code change patterns discovered in Python ML systems
 
