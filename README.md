@@ -83,7 +83,7 @@ For example, if you click on the hyperlink **location** in the second row, which
 **Step 3.4** Now, you saw how [R-CPATMiner](https://github.com/maldil/R-CPATMiner) mines code change patterns. You can execute exit to terminate the container. You can still access all the generated files in the mounted folder.
 
 
-### b. Evaluating the RefactoringMiner
+### c. Evaluating the RefactoringMiner
 
 **Step 3.1**: To download the docker images, execute the following command in your terminal 
 
