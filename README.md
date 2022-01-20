@@ -1,5 +1,5 @@
 # Discovering Repetitive Code Changes in Python ML Systems
-We made all the tools and data used in the research publicly available in order to claim "Available" and "Functional" batches.
+We made all the tools and data used in the research publicly available in order to claim "Available" and "Reusable" batches.
 
 ## About the artifact
 
@@ -154,7 +154,7 @@ Below is the maven dependency information of the RefactoringMiner.
 </dependency>
 ```
 
-**Although we claim the “functional” batch,  we would appreciate it if the reviewers could study these materials and determine whether the batch can be upgraded to "reusable".**
+
 
 
 
