@@ -1,25 +1,26 @@
 # Discovering Repetitive Code Changes in Python ML Systems
 We made all the tools and data used in the research publicly available in order to claim "Available" and "Reusable" batches.
+This artifact consists of the open source versions of the tools ([Py-RefactoringMiner](https://github.com/maldil/RefactoringMiner), [R-CPATMiner](https://github.com/maldil/R-CPATMiner)) and two kinds of data sets that are extracted by tools. We have readily installed two tools on a [Docker container](https://docker-curriculum.com/#what-is-docker-) and included the evaluation subjects for the reviewer’s convenience. The tools' git repositories provide detailed instructions on building and using the tools.
+
 
 ## About the artifact
 
 We release two tools
 * [Py-RefactoringMiner](https://github.com/maldil/RefactoringMiner) - a tool that mines Python refactoring in git commits of Python systems
 * [R-CPATMiner](https://github.com/maldil/R-CPATMiner) - a tool that mines fine-grained code change patterns in Python systems
-This artifact consists of the open source versions of the tools ([Py-RefactoringMiner](https://github.com/maldil/RefactoringMiner), [R-CPATMiner](https://github.com/maldil/R-CPATMiner)) and a subset of the small sized open-source projects used in the research. We have readily installed two tools on a [Docker container](https://docker-curriculum.com/#what-is-docker-) and included the evaluation subjects for the reviewer’s convenience. The tools' git repositories provide detailed instructions on building and using the tools.
 
 We made two types of large datasets publicly available in https://mlcodepatterns.github.io. These datasets were extracted using the above tools.
 * 2,062 instances of validated Python refactoring instances
 * 28K fine grained code change patterns discovered in Python ML systems
 
-As the first step, we describe the steps to evaluate the tools (Section 1). We first explored the guidelines to execute the tools in Docker Containers on toy projects which can be done under 30 minutes. In section 2, we described our public datasets. Comprehensive explanation of building the tools and then using it on a  dataset is provided in Section3. 
+As the first step, we describe the steps to evaluate the tools. In Section 1, we first presented the steps to execute the tools in Docker Containers on toy projects which can be done under 30 minutes. In section 2, we described our public datasets. Comprehensive explanation of building the tools and then using it on a  large dataset is provided in Section3. 
 
 You could use Mac OS’ CLI, Windows powershell, or Linux terminal to execute the commands. 
 
 ## 1. Tool evaluation
 ### a. Initial setup
 
-**Step 1.1:**  Docker may be downloaded via https://docs.docker.com/get-docker/. To verify that Docker is installed successfully, use the command docker —version from your Terminal. By clicking on the docker icon, you launch the program to proceed.
+**Step 1.1:**  Docker may be downloaded via https://docs.docker.com/get-docker/. To verify that Docker is installed successfully, use the command `docker —version` from your Terminal. By clicking on the docker icon, you launch the program to proceed.
 
 **Step 1.2**: Open your terminal and go to the folder where you will be saving all of the data and tools. You may make a new folder and then go inside it in your terminal. The command  `pwd` (`cd` in Windows) should be run from the folder. The command should print your folder's absolute path. We will name it `$FOLDER_PATH`.
 
@@ -42,11 +43,13 @@ This is the folder structure we will use within the Docker containers. The Docke
 
 ```docker run -v $FOLDER_PATH/ArtifactEvaluation:/user/local/cpatminer/ArtifactEvaluation -it malindadoo1/python-cpatminer:6.0 /bin/bash```
 
+>For Windows - ```docker run -v $FOLDER_PATH\ArtifactEvaluation:/user/local/cpatminer/ArtifactEvaluation -it malindadoo1/python-cpatminer:6.0 /bin/bash```
+
 Again, `$FOLDER_PATH` has to be the absolute folder path of the parent  folder of `ArtifactEvaluation` that you downloaded in step 1.
 You will be entered to the interactive mode of the Docker container. Execute the command `ls` and check the folders `ArtifactEvaluation`,  `atomicminer`, and  `changeminer` are available in the current directory (`/user/local/cpatminer`).  
 
-**Note**-  Fine grained pattern generation consists of two steps, i.e.,(1) change graph generation, and (2) code change pattern generation. You can specify the `selected-repos.csv` file in the folder `CPATMiner` shown below to specify the project for change graph generation. Here we have already specified a project that takes only a few minutes for complete analysis. You do not have to change this file unless you want to add more projects there. If you add new projects by editing `selected-repos.csv`, the type information downloaded from our [type repository](https://github.com/mlcodepatterns/PythonTypeInformation) must be placed in the folder `/ArtifactEvaluation/RepoData/TYPE_REPO`. 
-If you do not want to alter `selected-repos.csv`, you do not need to do anything because we have already supplied type information for our toy project.
+**Note**-  Fine grained pattern generation consists of two steps, i.e.,(1) change graph generation, and (2) code change pattern generation. Reviewers can specify the `selected-repos.csv` file in the folder `CPATMiner` shown below to specify the project for change graph generation. Here we have already specified a project that takes only a few minutes for complete analysis. Reviewers do not have to change this file unless they want to add more projects there. If Reviewers add new projects by editing `selected-repos.csv`, the type information downloaded from our [type repository](https://github.com/mlcodepatterns/PythonTypeInformation) must be placed in the folder `/ArtifactEvaluation/RepoData/TYPE_REPO`. 
+If Reviewers do not want to alter `selected-repos.csv`, Reviewers do not need to do anything because we have already supplied type information for our toy project.
 
 <img src="https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/Images/selected_repos.png" width="200" height="230" />
 
@@ -54,7 +57,7 @@ If you do not want to alter `selected-repos.csv`, you do not need to do anything
 
 ```python3 test_container.py```
 
-If this command prints the message, **You've done an excellent job mounting the folders** appears after running this command, you've successfully finished step 2.2. You can go to the next step now. If not, make sure the variable `$FOLDER PATH` is set to the absolute path of the download folder's parent folder (go to step 1.3).
+If this command prints the message, **You've done an excellent job mounting the folders** appears after running this command, you've successfully finished step 2.2. You can go to the next step now. If not, make sure the variable `$FOLDER PATH` is set to the absolute path of the download folder's parent folder (go to step 1.3 for more instructions).
 
 
 **Step 2.4** To run R-CPATMiner and generate patterns in the projects specified in `selected-repos.csv`, execute:
@@ -82,7 +85,7 @@ For example, if you click on the hyperlink **location** in the second row, which
 
 <img src="https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/Images/pattern.png" width="250" height="450" />
 
-**Step 3.4** Now, you saw how [R-CPATMiner](https://github.com/maldil/R-CPATMiner) mines code change patterns. You can execute exit to terminate the container. You can still access all the generated files in the mounted folder.
+**Step 3.4** Now, you saw how [R-CPATMiner](https://github.com/maldil/R-CPATMiner) mines code change patterns. You can execute `exit` to terminate the container. You can still access all the generated files in the mounted folder.
 
 
 ### c. Evaluating the RefactoringMiner
@@ -91,11 +94,13 @@ For example, if you click on the hyperlink **location** in the second row, which
 
 ```docker pull malindadoo1/python_refactoring_miner:r11 ```
 
-Once the download is completed, run the command docker images and make sure that the image `python_refactoring_miner` with tag `r11` is available.
+Once the download is completed, run the command `docker images` and make sure that the image `python_refactoring_miner` with tag `r11` is available.
 
 **Step 3.2**: To start the docker container in interactive mode, execute the following command in your terminal 
 
 ```docker run -v $FOLDER_PATH/ArtifactEvaluation:/user/local/rminer/ArtifactEvaluation -it malindadoo1/python_refactoring_miner:r11 /bin/bash```
+
+> For Windows - ```docker run -v $FOLDER_PATH\ArtifactEvaluation:/user/local/rminer/ArtifactEvaluation -it malindadoo1/python_refactoring_miner:r11 /bin/bash```
 
 Same like in Step 2, You have to update the variable `$FOLDER_PATH` correctly. It should be the absolute path to the parent folder of the downloaded folder `ArtifactEvaluation`. We have to mount it to the docker container. Once you execute the above command you will be entered to the docker container. 
 
@@ -111,7 +116,7 @@ After ensuring that the working directory `is /user/local/rminer`, run the follo
 
 ```java -jar target/python-refactoring-miner-1.0.6.jar -dc``` (Ignore the log4j warnings.)
 
-The `.jar` file is preconfigured to read the file `/ArtifactEvaluation/RefactoringMiner/repo_data.csv` which has the repository and commit hex of the commit that we want to extract refactorings. If you want to add more projects and hex you can edit the file and add more projects and commit hexes. However, you must download inferred type information from the [type repository](https://github.com/mlcodepatterns/PythonTypeInformation) and add it to the subdirectory `TYPE_REPO`, if you wish to analyze more commits and projects than the ones in `repo_data.csv`.
+The `.jar` file is preconfigured to read the file `$FOLDER PATH/ArtifactEvaluation/RefactoringMiner/repo_data.csv` which has the repository and commit hex of the commit that we want to extract refactorings. If you want to add more projects and hex you can edit the file and add more projects and commit hexes. However, you must download inferred type information from the [type repository](https://github.com/mlcodepatterns/PythonTypeInformation) and add it to the subdirectory `TYPE_REPO`, if you wish to analyze more commits and projects than the ones in `repo_data.csv`.
 
 
 **Step 3.5***- Step 3.4 saves all refactoring data to individual `.json` files in the `$FOLDER PATH/ArtifactEvaluation/RefactoringMiner/Refactoring` folder. Now we must compile all of this information into a single file. To do so, go to the `/user/local/rminer` folder and run the following command.
@@ -131,12 +136,11 @@ You can go to each commit URL and check whether the refactoring described in the
 
 ##  2. Public dataset
 
-We present the data which was generated by the above evaluated tools i.e., R-CPATMiner and RefactoringMiner. The dataset is generated by running the tools over 1000 open source machine learning projects. The project list is specified in this [file](https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/Images/selected-repos.csv). Reviewers can regenerate all the data using the above tools. However, we do not expect the reviewers to execute the tools on this dataset because it takes a long time to complete and cannot be completed in less than 30 minutes.
-
+We present the data which was generated by the above evaluated tools i.e., R-CPATMiner and RefactoringMiner. The dataset is generated by running the tools over 1000 open source machine learning projects. The project list is specified in this [file](https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/Images/selected-repos.csv). Reviewers can use the aforementioned tools to renew all of the data by amending the: 1) 'selected-repos.csv' file, to produce code change patterns, and 2) 'repo data.csv' to infer refactorings. Reviwers must download [type information](https://github.com/mlcodepatterns/PythonTypeInformation) to the 'TYPE REPO' directory, as stated in Sections 1.b and 1.c. We do not expect the reviewers to use the tools on this dataset because it takes a long time to finish and cannot be done in under 30 minutes.
 
 * **Dataset 1:** R-CPATMiner generated 28,323 code change patterns which is publicly available in this link https://mlcodepatterns.github.io/icse_sp8/directory.html.
 * **Dataset 2:** We manually analyzed 2,500 most popular code change patterns and presented 22 code change patterns in the paper. The dataset is available in https://mlcodepatterns.github.io/summary_icse/pattern_summary_final_v1.html.
-* **Dataset 3:** We manually analysed 2,062 refactoring dataset reported by the RefactoringMiner. We make the manually validated dataset available to the public https://mlcodepatterns.github.io (Item 3).
+* **Dataset 3:** We manually analysed 2,062 refactoring dataset reported by the RefactoringMiner. We make the manually validated dataset available to the public https://mlcodepatterns.github.io (See Item 3).
 
 ## 3. Building the tools 
 
