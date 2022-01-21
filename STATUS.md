@@ -4,3 +4,19 @@ In our paper, Discovering Repetitive Code Changes in Python ML Systems, we prese
 
 All of the tools and data are summarized on the main website (https://mlcodepatterns.github.io). The GitHub repository for each tool includes detailed instructions for 1) building the tools, 2) using them as maven libraries, and 3) utilizing them as Docker containers. The detailed instructions are open to the public, allowing other researchers to reuse the tools and data.  Furthermore, the README.md file explains the steps that must be taken in order to determine whether the tools are functional. Therefore, we request the badges "Available" and "Reusable".
 
+Following the ICSE 2022 Open Science Policies, we have archived all tools and data.
+
+Tools:
+* R-CPATMiner - https://zenodo.org/record/5889285#.YessCy1h2cY
+* Py-RefactoringMiner - https://zenodo.org/record/5889287#.YestBy1h2cY
+
+Data:
+* 2,062 validated Python refactoring instances and 28K code change patterns - https://zenodo.org/record/5889296#.Yesvd1jMKcY
+* Python type informatin - 
+
+
+
+
+
+
+
