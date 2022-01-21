@@ -125,7 +125,7 @@ The file `refactoring.csv` contains a summary of all the refactoring of the comm
 
 <img src="https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/Images/Excel.png" width="550" height="40" />
 
-You can go to each commit URL and check whether the refactoring described in the column Description is available. This file described only a little information. Additional informations are available in the `.json` files in the subdirectories of  `$FOLDER_PATH/ArtifactEvaluation/RefactoringMiner/Refactoring`
+You can go to each commit URL and check whether the refactoring described in the column Description is available. We only collected a little amount of data for `refactoring.csv` for demonstration purposes. Additional informations are available in the `.json` files in the subdirectories of  `$FOLDER_PATH/ArtifactEvaluation/RefactoringMiner/Refactoring`
 
 **Step 3.6** - Execute `exit` to terminate the container. 
 
