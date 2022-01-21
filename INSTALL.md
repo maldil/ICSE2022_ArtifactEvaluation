@@ -1,1 +1,1 @@
-
+The tools' binaries have already been installed in a Docker container, and the evaluation stages have been documented in README.md. We expect that the reviewers will download and install the Docker program on their machines. Once they've pulled images from DockerHub, the reviewers can follow the steps in README.md to see if the tools are functioning.
