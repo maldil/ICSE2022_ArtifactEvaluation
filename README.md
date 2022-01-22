@@ -157,7 +157,7 @@ Data:
 
 In step 2, we showed you how to use the tools in Docker containers. If the reviewers complete all of the processes up to this point, you have successfully executed the tools and verified that they are functional and that the data and tools are publicly accessible. Let's see whether the tools are reusable now.
 
-If reviewers want to build the tools and perform customization or use them as submodules we have given detailed instructions in the tools’ GitHub repositories. 
+If reviewers want to build the tools and perform customization or use them as submodules we have given detailed instructions in the tools’ GitHub repositories. Please review the instructions in the tools below to see if they are reusable.
 
 * Py-RefactoringMiner = https://github.com/maldil/RefactoringMiner
 * R-CPATMiner = https://github.com/maldil/R-CPATMiner
