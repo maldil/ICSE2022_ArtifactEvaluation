@@ -1,6 +1,6 @@
 # Discovering Repetitive Code Changes in Python ML Systems
 We made all the tools and data used in the research publicly available in order to claim "Available" and "Reusable" batches.
-This artifact consists of the open source versions of the tools ([Py-RefactoringMiner](https://github.com/maldil/RefactoringMiner), [R-CPATMiner](https://github.com/maldil/R-CPATMiner)) and two kinds of data sets that are extracted by tools. We have readily installed two tools on a [Docker container](https://docker-curriculum.com/#what-is-docker-) and included the evaluation subjects for the reviewer’s convenience. The tools' git repositories provide detailed instructions on building and using the tools.
+This artifact consists of the open source versions of the tools ([Py-RefactoringMiner](https://github.com/maldil/RefactoringMiner), [R-CPATMiner](https://github.com/maldil/R-CPATMiner)) and two kinds of data sets that are extracted by tools. We have readily installed two tools on [Docker containers](https://docker-curriculum.com/#what-is-docker-) and included the evaluation subjects for the reviewer’s convenience. The tools' git repositories provide detailed instructions on building and using the tools.
 
 
 ## About the artifact
@@ -20,13 +20,13 @@ You could use Mac OS’ CLI, Windows powershell, or Linux terminal to execute th
 ## 1. Tool evaluation
 ### a. Initial setup
 
-**Step 1.1:**  Docker may be downloaded via https://docs.docker.com/get-docker/. To verify that Docker is installed successfully, use the command `docker —version` from your Terminal. By clicking on the docker icon, you launch the program to proceed.
+**Step 1.1:**  Docker may be downloaded via https://docs.docker.com/get-docker/. To verify that Docker is installed successfully, you could use the command `docker -—version` from your terminal. By clicking on the docker icon, you launch the program to proceed.
 
 **Step 1.2**: Open your terminal and go to the folder where you will be saving all of the data and tools. You may make a new folder and then go inside it in your terminal. The command  `pwd` (`cd` in Windows) should be run from the folder. The command should print your folder's absolute path. We will name it `$FOLDER_PATH`.
 
-**Step 1.3**:  [This folder](https://drive.google.com/file/d/1mWy046yjHrywRUf_g_wklwiyGtb5Ggtn/view?usp=sharing) should be downloaded, unzipped, and saved to the `$FOLDER PATH` directory. You should see the following folder in the `$FOLDER_PATH` directory. 
+**Step 1.3**:  [This folder](https://drive.google.com/file/d/1mWy046yjHrywRUf_g_wklwiyGtb5Ggtn/view?usp=sharing) should be downloaded, unzipped, and saved to the `$FOLDER_PATH` directory. You should see the following folder in the `$FOLDER_PATH` directory. 
 
->**Note** - If you have a Windows operating system, the zipped folder will be extracted to another parent directory. Check that the `$FOLDER PATH` contains the following downloaded directory (not the one that you are extracting the zipped folder).
+>**Note** - If you have a Windows operating system, the zipped folder will be extracted to another parent directory. Check that the `$FOLDER_PATH` contains the following downloaded directory (not the one that you are extracting the zipped folder).
 
 <img src="https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/Images/Atrifact_Folder.png" width="200" height="230" />
 
@@ -49,7 +49,7 @@ Again, `$FOLDER_PATH` has to be the absolute folder path of the parent  folder o
 You will be entered to the interactive mode of the Docker container. Execute the command `ls` and check the folders `ArtifactEvaluation`,  `atomicminer`, and  `changeminer` are available in the current directory (`/user/local/cpatminer`).  
 
 **Note**-  Fine grained pattern generation consists of two steps, i.e.,(1) change graph generation, and (2) code change pattern generation. Reviewers can specify the `selected-repos.csv` file in the folder `CPATMiner` shown below to specify the project for change graph generation. Here we have already specified a project that takes only a few minutes for complete analysis. Reviewers do not have to change this file unless they want to add more projects there. If Reviewers add new projects by editing `selected-repos.csv`, the type information downloaded from our [type repository](https://github.com/mlcodepatterns/PythonTypeInformation) must be placed in the folder `/ArtifactEvaluation/RepoData/TYPE_REPO`. 
-If Reviewers do not want to alter `selected-repos.csv`, Reviewers do not need to do anything because we have already supplied type information for our toy project.
+If Reviewers do not want to alter `selected-repos.csv`, reviewers do not need to do anything because we have already supplied type information for the required projects.
 
 <img src="https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/Images/selected_repos.png" width="200" height="230" />
 
@@ -57,12 +57,12 @@ If Reviewers do not want to alter `selected-repos.csv`, Reviewers do not need to
 
 ```python3 test_container.py```
 
-If this command prints the message, **You've done an excellent job mounting the folders** appears after running this command, you've successfully finished step 2.2. You can go to the next step now. If not, make sure the variable `$FOLDER PATH` is set to the absolute path of the download folder's parent folder (go to step 1.3 for more instructions).
+If this command prints the message, **You've done an excellent job mounting the folders** appears after running this command, you've successfully finished step 2.2. You can go to the next step now. If not, make sure the variable `$FOLDER_PATH` is set to the absolute path of the download folder's parent folder (go to step 1.3 for more instructions).
 
 
 **Step 2.4** To run R-CPATMiner and generate patterns in the projects specified in `selected-repos.csv`, execute:
 
-```./test_cpatminer.sh``` 
+```./test_cpatminer.sh```   (Ignore the log4j warnings)
 
 This shell script consists of the commands that need to 1) generate change graphs generation and 2) pattern generation. You can use `vi test_cpatminer.sh` to view the commands.
 
@@ -79,13 +79,13 @@ Open the html file `directory.html` using any of your browsers. You can see the 
 
 <img src="https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/Images/patterns.png" width="700" height="50" />
 
-A code change pattern is represented by a row in this generated table. The number of code change occurrences per pattern is represented by the column **NumberFound**. Click the hyperlinks in the **Details** column to view each case. It should take you to the page below, which has all of the occurrences for the relevant pattern. To see the actual changes on GitHub, click on the **Link** hyperlinks.
+A code change pattern is represented by a row in this generated table. The number of code change occurrences per pattern is represented by the column **NumberFound**. Click the hyperlinks in the **Details** column to view each case. It takes you to a page similar to below, which has all of the occurrences for the relevant pattern. To see the actual changes on GitHub, click on the **Link** hyperlinks.
 
 For example, if you click on the hyperlink **location** in the second row, which has the most occurrences, you should see the `html` file below, which illustrates moving from `sum()` to `for loops`.
 
 <img src="https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/Images/pattern.png" width="250" height="450" />
 
-**Step 3.4** Now, you saw how [R-CPATMiner](https://github.com/maldil/R-CPATMiner) mines code change patterns. You can execute `exit` to terminate the container. You can still access all the generated files in the mounted folder.
+**Step 2.5** Now, you saw how [R-CPATMiner](https://github.com/maldil/R-CPATMiner) mines code change patterns. You can execute `exit` to terminate the container. You can still access all the generated files in the mounted folder.
 
 
 ### c. Evaluating the RefactoringMiner
@@ -108,7 +108,7 @@ Same like in Step 2, You have to update the variable `$FOLDER_PATH` correctly. I
 
 ```python3 test_container.py ```
 
-If this command prints the message, **You've done an excellent job mounting the folders** appears after running this command, you've successfully finished step 3.2. You can go to the next step now. If not, make sure the variable `$FOLDER PATH` is set to the absolute path of the download folder's parent folder.
+If this command prints the message, **You've done an excellent job mounting the folders** appears after running this command, you've successfully finished step 3.2. You can go to the next step now. If not, make sure the variable `$FOLDER_PATH` is set to the absolute path of the download folder's parent folder.
 
 
 **Step 3.4**- Let’s run the refactoring miner and extract some refactorings. First, use the command `pwd` to check whether your current working folder is `/user/local/rminer`. If not, you should first navigate back to the folder `/user/local/rminer`. 
@@ -116,10 +116,10 @@ After ensuring that the working directory `is /user/local/rminer`, run the follo
 
 ```java -jar target/python-refactoring-miner-1.0.6.jar -dc``` (Ignore the log4j warnings.)
 
-The `.jar` file is preconfigured to read the file `$FOLDER PATH/ArtifactEvaluation/RefactoringMiner/repo_data.csv` which has the repository and commit hex of the commit that we want to extract refactorings. If you want to add more projects and hex you can edit the file and add more projects and commit hexes. However, you must download inferred type information from the [type repository](https://github.com/mlcodepatterns/PythonTypeInformation) and add it to the subdirectory `TYPE_REPO`, if you wish to analyze more commits and projects than the ones in `repo_data.csv`.
+The `.jar` file is preconfigured to read the file `$FOLDER_PATH/ArtifactEvaluation/RefactoringMiner/repo_data.csv` which has the repository and commit hex of the commit that we want to extract refactorings. If you want to add more projects and hex you can edit the file and add more projects and commit hexes. However, you must download inferred type information from the [type repository](https://github.com/mlcodepatterns/PythonTypeInformation) and add it to the subdirectory `TYPE_REPO`, if you wish to analyze more commits and projects than the ones in `repo_data.csv`.
 
 
-**Step 3.5***- Step 3.4 saves all refactoring data to individual `.json` files in the `$FOLDER PATH/ArtifactEvaluation/RefactoringMiner/Refactoring` folder. Now we must compile all of this information into a single file. To do so, go to the `/user/local/rminer` folder and run the following command.
+**Step 3.5**- Step 3.4 saves all refactoring data to individual `.json` files in the `$FOLDER_PATH/ArtifactEvaluation/RefactoringMiner/Refactoring` folder. Now we must compile all of this information into a single file. To do so, go to the `/user/local/rminer` folder and run the following command.
 
 ```python3 conver_to_csv.py ./ArtifactEvaluation/RefactoringMiner/Refactoring/```
 
@@ -130,7 +130,7 @@ The file `refactoring.csv` contains a summary of all the refactoring of the comm
 
 <img src="https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/Images/Excel.png" width="550" height="40" />
 
-You can go to each commit URL and check whether the refactoring described in the column Description is available. We only collected a little amount of data for `refactoring.csv` for demonstration purposes. Additional informations are available in the `.json` files in the subdirectories of  `$FOLDER_PATH/ArtifactEvaluation/RefactoringMiner/Refactoring`
+You can go to each commit URL and check whether the refactoring described in the column *Description* is available. We only collected a little amount of data for `refactoring.csv` for demonstration purposes. Additional informations are available in the `.json` files in the subdirectories of  `$FOLDER_PATH/ArtifactEvaluation/RefactoringMiner/Refactoring`
 
 **Step 3.6** - Execute `exit` to terminate the container. 
 
