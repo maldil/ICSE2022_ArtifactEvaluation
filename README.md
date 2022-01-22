@@ -116,7 +116,10 @@ After ensuring that the working directory `is /user/local/rminer`, run the follo
 
 ```java -jar target/python-refactoring-miner-1.0.6.jar -dc``` (Ignore the log4j warnings.)
 
-The `.jar` file is preconfigured to read the file `$FOLDER_PATH/ArtifactEvaluation/RefactoringMiner/repo_data.csv` which has the repository and commit hex of the commit that we want to extract refactorings. If you want to add more projects and hex you can edit the file and add more projects and commit hexes. However, you must download inferred type information from the [type repository](https://github.com/mlcodepatterns/PythonTypeInformation) and add it to the subdirectory `TYPE_REPO`, if you wish to analyze more commits and projects than the ones in `repo_data.csv`.
+**Note :** The `.jar` file is preconfigured to read the file `$FOLDER_PATH/ArtifactEvaluation/RefactoringMiner/repo_data.csv` which has repositories and commit hex of the commits that we want to extract refactorings. In this demonstration, we have pre-configured the file to infer refactorings of the commits in the ML library [Keras](https://github.com/keras-team/keras).
+
+
+You can update the file to add new projects and commit hexes as necessary. If you want to examine additional commits and projects than those in `repo data.csv`, you must download inferred type information from the [type repository](https://github.com/mlcodepatterns/PythonTypeInformation) and place it in the subfolder `TYPE REPO`. If you do not, all of the relevant information has already been posted to the downloaded folder (ArtifactEvaluation).
 
 
 **Step 3.5**- Step 3.4 saves all refactoring data to individual `.json` files in the `$FOLDER_PATH/ArtifactEvaluation/RefactoringMiner/Refactoring` folder. Now we must compile all of this information into a single file. To do so, go to the `/user/local/rminer` folder and run the following command.
