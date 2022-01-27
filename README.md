@@ -112,7 +112,7 @@ Same like in Step 2, You have to update the variable `$FOLDER_PATH` correctly. I
 If this command prints the message, **You've done an excellent job mounting the folders** appears after running this command, you've successfully finished step 3.2. You can go to the next step now. If not, make sure the variable `$FOLDER_PATH` is set to the absolute path of the download folder's parent folder (go to step 1.3 for more instructions).
 
 
-**Step 3.4**- Let’s run the refactoring miner and extract some refactorings. First, use the command `pwd` to check whether your current working folder is `/user/local/rminer`. If not, you should first navigate back to the folder `/user/local/rminer`. 
+**Step 3.4**- Let’s run the refactoring miner and extract some refactorings. First, use the command `pwd` (`cd` in Windows) to check whether your current working folder is `/user/local/rminer`. If not, you should first navigate back to the folder `/user/local/rminer`. 
 After ensuring that the working directory `is /user/local/rminer`, run the following command.
 
 ```java -jar target/python-refactoring-miner-1.0.6.jar -dc``` (Ignore the log4j warnings.)
