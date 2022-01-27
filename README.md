@@ -92,15 +92,15 @@ For example, if you click on the hyperlink **location** in the second row, which
 
 **Step 3.1**: To download the docker images, execute the following command in your terminal 
 
-```docker pull malindadoo1/python_refactoring_miner:r12 ```
+```docker pull malindadoo1/python_refactoring_miner:r13 ```
 
-Once the download is completed, run the command `docker images` and make sure that the image `python_refactoring_miner` with tag `r12` is available.
+Once the download is completed, run the command `docker images` and make sure that the image `python_refactoring_miner` with tag `r13` is available.
 
 **Step 3.2**: To start the docker container in interactive mode, execute the following command in your terminal 
 
-```docker run -v $FOLDER_PATH/ArtifactEvaluation:/user/local/rminer/ArtifactEvaluation -it malindadoo1/python_refactoring_miner:r12 /bin/bash```
+```docker run -v $FOLDER_PATH/ArtifactEvaluation:/user/local/rminer/ArtifactEvaluation -it malindadoo1/python_refactoring_miner:r13 /bin/bash```
 
-> For Windows - ```docker run -v $FOLDER_PATH\ArtifactEvaluation:/user/local/rminer/ArtifactEvaluation -it malindadoo1/python_refactoring_miner:r11 /bin/bash```
+> For Windows - ```docker run -v $FOLDER_PATH\ArtifactEvaluation:/user/local/rminer/ArtifactEvaluation -it malindadoo1/python_refactoring_miner:r13 /bin/bash```
 
 Same like in Step 2, You have to update the variable `$FOLDER_PATH` correctly. It should be the absolute path to the parent folder of the downloaded folder `ArtifactEvaluation`. We have to mount it to the docker container. Once you execute the above command you will be entered to the docker container.
 
