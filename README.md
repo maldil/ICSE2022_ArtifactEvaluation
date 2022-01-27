@@ -1,7 +1,8 @@
 # Discovering Repetitive Code Changes in Python ML Systems
 We made all the tools and data used in the research publicly available in order to claim "Available" and "Reusable" batches.
-This artifact consists of the open-source versions of the tools ([Py-RefactoringMiner](https://github.com/maldil/RefactoringMiner), [R-CPATMiner](https://github.com/maldil/R-CPATMiner)) and two kinds of data sets that are extracted by tools. We have readily installed two tools on [Docker containers](https://docker-curriculum.com/#what-is-docker-) and included the evaluation subjects for the reviewer’s convenience. The tools' git repositories provide detailed instructions on building and using the tools.
+This artifact consists of the open-source versions of the tools ([Py-RefactoringMiner](https://github.com/maldil/RefactoringMiner), [R-CPATMiner](https://github.com/maldil/R-CPATMiner)) and two kinds of data sets that are extracted by tools. We have readily installed two tools on [Docker containers](https://docker-curriculum.com/#what-is-docker-) and included the evaluation subjects for the reviewer’s convenience. The tools' git repositories provide detailed instructions on building and using the tools. 
 
+> Note: Please refer to the extra steps in [REQUIREMENTS.md](https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/REQUIREMENTS.md)   if you run these instructions on MacOS
 
 ## About the artifact
 In Section 1, we first presented the steps to execute the tools in Docker Containers which can be done in under 30 minutes. In section 2, we described our public datasets. A comprehensive explanation of building the tools and then using it on a large dataset is provided in Section 3. You could use Mac OS CLI, Windows Powershell, or Linux terminal to execute the commands. The public may access all of these resources through our primary [website](https://mlcodepatterns.github.io) or archived repositories at [Zenodo](https://zenodo.org/).
