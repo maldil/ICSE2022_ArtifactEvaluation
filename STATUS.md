@@ -12,7 +12,7 @@ Tools:
 
 Data:
 * 2,062 validated Python refactoring instances and 28K code change patterns - https://zenodo.org/record/5889296#.Yesvd1jMKcY
-* Python type informatin - 
+
 
 
 
