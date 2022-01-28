@@ -40,7 +40,7 @@ This is the folder structure we will use within the Docker containers. The Docke
 
 ```docker pull malindadoo1/python-cpatminer:6.0```
 
-> Note: If you observe the warning ```WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested``` please follow the instructions in [REQUIREMENTS](https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/REQUIREMENTS.md)
+
 
 **Step 2.2**- To start the container execute following command in your terminal
 
@@ -48,6 +48,7 @@ This is the folder structure we will use within the Docker containers. The Docke
 
 > For Windows - ```docker run -v $FOLDER_PATH\ArtifactEvaluation:/user/local/cpatminer/ArtifactEvaluation -it malindadoo1/python-cpatminer:6.0 /bin/bash```
 
+> Note: If you observe the warning ```WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested``` please follow the instructions in [REQUIREMENTS](https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/REQUIREMENTS.md)
 
 Again, `$FOLDER_PATH` has to be the absolute folder path of the parent  folder of `ArtifactEvaluation` that you downloaded in step 1.
 You will be entered to the interactive mode of the Docker container. Execute the command `ls` and check the folders `ArtifactEvaluation`,  `atomicminer`, and  `changeminer` are available in the current directory (`/user/local/cpatminer`).  
@@ -105,6 +106,8 @@ Once the download is completed, run the command `docker images` and make sure th
 ```docker run -v $FOLDER_PATH/ArtifactEvaluation:/user/local/rminer/ArtifactEvaluation -it malindadoo1/python_refactoring_miner:r13 /bin/bash```
 
 > For Windows - ```docker run -v $FOLDER_PATH\ArtifactEvaluation:/user/local/rminer/ArtifactEvaluation -it malindadoo1/python_refactoring_miner:r13 /bin/bash```
+
+> Note: If you observe the warning ```WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested``` please follow the instructions in [REQUIREMENTS](https://github.com/maldil/ICSE2022_ArtifactEvaluation/blob/main/REQUIREMENTS.md)
 
 Same like in Step 2, You have to update the variable `$FOLDER_PATH` correctly. It should be the absolute path to the parent folder of the downloaded folder `ArtifactEvaluation`. We have to mount it to the docker container. Once you execute the above command you will be entered to the docker container.
 
