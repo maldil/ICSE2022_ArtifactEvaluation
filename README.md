@@ -161,7 +161,7 @@ Tools:
 
 Data:
 * 2,062 validated Python refactoring instances and 28K code change patterns - https://zenodo.org/record/5889296#.Yesvd1jMKcY
-* Python type informatin - 
+* Python type informatin - https://zenodo.org/record/5919637#.Yfd_mi1h3YU
 
 
 ## 3. Building the tools 
